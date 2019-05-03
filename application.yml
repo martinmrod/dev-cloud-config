@@ -59,7 +59,7 @@ aleph:
 
   oauth:
     context-path: /aleph-oauth
-    uri: http://localhost:${aleph.port.oauth}${aleph.oauth.context-path}
+    uri: http://10.161.237.174:${aleph.port.oauth}${aleph.oauth.context-path}
     redis:
       enabled: false
       host: localhost
@@ -88,7 +88,7 @@ aleph:
   log:
     context-path: /log
     api-path: /api/v1
-    uri: http://10.161.237.174:${aleph.port.log}${aleph.log.context-path}
+    uri: http://localhost:${aleph.port.log}${aleph.log.context-path}
 
   rights:
     context-path: /rights
