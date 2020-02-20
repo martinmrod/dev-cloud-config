@@ -159,6 +159,11 @@ aleph:
     api-path: /api/v1
     uri: http://argalephdockerd1:${aleph.port.eip-external}${aleph.eip-external.context-path}
 
+  eip-internal:
+    context-path: /eip/internal
+    api-path: /api/v1
+    uri: http://argalephdockerd1:${aleph.port.eip-internal}${aleph.eip-internal.context-path}
+
   eip:
     context-path: /eip
     api-path: /api/v1
