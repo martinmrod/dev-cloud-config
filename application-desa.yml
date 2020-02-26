@@ -163,6 +163,11 @@ aleph:
     context-path: /eip/internal
     api-path: /api/v1
     uri: http://argalephdockerd1:${aleph.port.eip-internal}${aleph.eip-internal.context-path}
+    
+  finance:
+    context-path: /finance
+    api-path: /api/v2
+    uri: http://argalephdockerd1:${aleph.port.finance}${aleph.finance.context-path}
 
   eip:
     context-path: /eip
