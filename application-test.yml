@@ -1,0 +1,268 @@
+
+---
+aleph:
+  port:
+    oauth: 18080
+    finance: 18090
+    media: 18100
+    rights: 18110
+    adsales: 18120
+    adsales-freetv: 18121
+    contentdelivery: 18130
+    depreciation: 18140
+    entities: 18150
+    prebilling: 18160
+    programming: 18170
+    title: 18180
+    title-catalog: 18181
+    config: 18190
+    branding: 18200
+    log: 18220
+    support: 18230
+    placer: 18240
+    eip-mam: 18250
+    eip-emea: 18251
+    eip-internal: 18252
+    eip-external: 18253
+    orders: 18260
+    vod: 18270
+    report: 18280
+    clearproxy: 8080
+    commondb: 1521
+    freetv-preorders: 18310
+    entity: 18290
+
+  frontport:
+    oauth: 18082
+    finance: 18092
+    media: 18102
+    rights: 18112
+    adsales: 18122
+    adsales-freetv: 18123
+    contentdelivery: 18132
+    depreciation: 18142
+    entities: 18152
+    prebilling: 18162
+    programming: 18172
+    title: 18182
+    title-catalog: 18183
+    branding: 18202
+    log: 18222
+    support: 18232
+    placer: 18242
+    orders: 18262
+    vod: 18272
+    report: 18282
+    freetv-preorders: 18312
+    entity: 18292
+
+  db:
+    host: db.turner.dev.redb.ee
+    sid: ALEPHDBD1
+    
+  redis:
+    host: argalephdockertu1
+    
+  oauth:
+    context-path: /aleph-oauth
+    uri: https://oauth.test.aleph.turner.com
+    redis:
+      enabled: false
+      host: argalephdockertu1
+      port: 6379
+
+  finance:
+    context-path: /finance
+    api-path: /api/v2
+    uri: http://argalephdockertu1:${aleph.port.finance}${aleph.finance.context-path}
+
+  title:
+    context-path: /title
+    api-path: /api/v1
+    uri: http://catalog.test.aleph.turner.com${aleph.title.context-path}
+    
+  entity:
+    context-path: /entity
+    api-path: /api/v1
+    uri: http://argalephdockertu1:${aleph.port.entity}${aleph.entity.context-path}
+
+  title-catalog:
+    context-path: /title
+    api-path: /api/v1
+    uri: http://catalog.test.aleph.turner.com${aleph.title-catalog.context-path}
+
+  support:
+    context-path: /support
+    api-path: /api/v1
+    uri: http://support.test.aleph.turner.com${aleph.support.context-path}
+
+  programming:
+    context-path: /programming
+    api-path: /api/v1
+    uri: http://argalephdockertu1:${aleph.port.programming}${aleph.programming.context-path}
+
+  media:
+    context-path: /media
+    api-path: /api/v1
+    uri: http://media.test.aleph.turner.com${aleph.media.context-path}
+
+  log:
+    context-path: /log
+    api-path: /api/v1
+    uri: http://argalephdockertu1:${aleph.port.log}${aleph.log.context-path}
+
+  rights:
+    context-path: /rights
+    api-path: /api/v1
+    uri: http://argalephdockertu1:${aleph.port.rights}${aleph.rights.context-path}
+
+  branding:
+    context-path: /branding
+    api-path: /api/v1
+    uri: http://argalephdockertu1:${aleph.port.branding}${aleph.branding.context-path}
+
+  clearproxy:
+    base: http://argalephdockertu1:${aleph.port.clearproxy}
+    context-path: /PFT.Clear.TurnerTracker
+    api-path-tvc: Prod/TurnerLatam.svc/json
+    api-path-longform: Longform/longformService/staging/v1
+    api-path-vod: ${aleph.clearproxy.base}/PFT.Clear.API
+    api-path-promo: Promo/PromoService/v1/
+    uri: ${aleph.clearproxy.base}${aleph.clearproxy.context-path}
+
+  adsales:
+    context-path: /adsales
+    api-path: /api/v1
+    uri: http://adsales.test.aleph.turner.com${aleph.adsales.context-path}
+
+  adsales-freetv:
+    context-path: /adsales
+    api-path: /api/v2
+    uri: http://freetv.test.aleph.turner.com${aleph.adsales-freetv.context-path}
+
+  placer:
+    context-path: /placer
+    api-path: /api/v1
+    uri: http://placer.test.aleph.turner.com${aleph.placer.context-path}
+
+  orders:
+    context-path: /orders
+    api-path: /api/v1
+    uri: http://orders.test.aleph.turner.com${aleph.orders.context-path}
+    
+  vod:
+    context-path: /vod
+    api-path: /api/v1
+    uri: http://vod.test.aleph.turner.com${aleph.vod.context-path}    
+    
+  prebilling:
+    context-path: /prebilling
+    api-path: /api/v1
+    uri: http://argalephdockertu1:${aleph.port.prebilling}${aleph.prebilling.context-path}
+
+  officeMail:
+    uri: http://argalephdockertu1:${aleph.port.officeService}
+
+  predictive:
+    programming:
+      uri: http://argalephdockerdpp:19300/
+
+  freetv-preorders:
+    context-path: /freetv/preorders
+    api-path: /api/v1
+    uri: http://prog-comercial.test.aleph.turner.com${aleph.freetv-preorders.context-path}
+
+  eip-external:
+    context-path: /eip/external
+    api-path: /api/v1
+    uri: http://eip-external.test.aleph.turner.com${aleph.eip-external.context-path}
+
+  eip:
+    context-path: /eip
+    api-path: /api/v1
+    uri: https://eip.test.aleph.turner.com${aleph.eip.context-path}    
+
+---
+feign:
+   hystrix:
+     enabled: true
+ribbon:
+  eureka:
+        enabled: false
+  ConnectTimeout: 30000
+  ReadTimeout: 300000
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          strategy: SEMAPHORE
+          semaphore:
+             maxConcurrentRequests: 200
+        timeout:
+             enabled: false
+---
+ldap:
+  url: ldap://TPW-ARGINF1001.turner.com:389
+  mocked: false
+  host: turner.com
+
+---
+mail:
+  server:
+    host: getsmtp.turner.com
+    port: 25
+
+---
+spring:
+  datasource:
+    url: jdbc:oracle:thin:@argalephorat1.turner.com:1521:ALEPHT1
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+    username: proxy_mig
+    password: proxy_mig
+    pool-name: SpringBootHikariCP
+    type: com.zaxxer.hikari.HikariDataSource
+    pool-prepared-statements: true
+    max-open-prepared-statements: 500
+    leakDetectionThreshold: 2500
+    maximumPoolSize: 30
+    minimumIdle: 5
+    maxLifetime: 30000
+    connectionTimeout: 30000
+    idleTimeout: 30000
+
+  jpa:
+    hibernate.ddl-auto: none
+    show-sql: false
+    database-platform: org.hibernate.dialect.Oracle9Dialect
+
+  data:
+    elasticsearch:
+      cluster-nodes: argalephdockerci2:9300 
+
+  oauth2:
+    resource:
+      userInfoUri: ${aleph.oauth.uri}/user
+  auth:
+    serverurl: ${aleph.oauth.uri}/oauth/check_token
+
+security:
+  oauth2:
+     resource:
+       user-info-uri: ${aleph.oauth.uri}/user
+       token-info-uri: ${aleph.oauth.uri}/oauth/check_token
+       filter-order: 3
+---
+management:
+  security:
+    enabled: false
+  context-path: /manage
+---
+logging.config=classpath:logback.xml
+---
+server:
+  tomcat:
+    accessLogEnabled: true
+    basedir: /log
+    protocol-header: X-Forwarded-Proto
+    remote-ip-header: X-Real-IP
