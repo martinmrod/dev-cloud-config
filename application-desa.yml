@@ -60,10 +60,7 @@ aleph:
   
   redis:
     host: 10.161.237.174
-    
-  ---DESA 10.161.237.174
-  ---TEST 10.161.237.188
-  ---UAT  10.161.237.189
+   
   oauth:
     context-path: /aleph-oauth
     uri: http://10.161.237.174:${aleph.port.oauth}${aleph.oauth.context-path}
