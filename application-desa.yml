@@ -66,7 +66,7 @@ aleph:
   ---UAT  10.161.237.189
   oauth:
     context-path: /aleph-oauth
-    uri: http://10.161.237.188:${aleph.port.oauth}${aleph.oauth.context-path}
+    uri: http://argalephdockertu1:${aleph.port.oauth}${aleph.oauth.context-path}
     redis:
       enabled: false
       host: localhost
@@ -105,7 +105,7 @@ aleph:
   branding:
     context-path: /branding
     api-path: /api/v1
-    uri: http://10.161.237.188:${aleph.port.branding}${aleph.branding.context-path}
+    uri: http://argalephdockertu1:${aleph.port.branding}${aleph.branding.context-path}
 
   clearproxy:
     base: http://argalephdockertu1:${aleph.port.clearproxy}
