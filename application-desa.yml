@@ -59,14 +59,14 @@ aleph:
     sid: ALEPHDBD1
   
   redis:
-    host: 10.161.237.188
+    host: 10.161.237.174
     
   ---DESA 10.161.237.174
   ---TEST 10.161.237.188
   ---UAT  10.161.237.189
   oauth:
     context-path: /aleph-oauth
-    uri: http://argalephdockertu1:${aleph.port.oauth}${aleph.oauth.context-path}
+    uri: http://10.161.237.174:${aleph.port.oauth}${aleph.oauth.context-path}
     redis:
       enabled: false
       host: localhost
@@ -75,22 +75,22 @@ aleph:
   title:
     context-path: /title
     api-path: /api/v1
-    uri: http://10.161.237.188:${aleph.port.title}${aleph.title.context-path}
+    uri: http://10.161.237.174:${aleph.port.title}${aleph.title.context-path}
 
   support:
     context-path: /support
     api-path: /api/v1
-    uri: http://10.161.237.188:${aleph.port.support}${aleph.support.context-path}
+    uri: http://10.161.237.174:${aleph.port.support}${aleph.support.context-path}
 
   programming:
     context-path: /programming
     api-path: /api/v1
-    uri: http://10.161.237.188:${aleph.port.programming}${aleph.programming.context-path}
+    uri: http://10.161.237.174:${aleph.port.programming}${aleph.programming.context-path}
 
   media:
     context-path: /media
     api-path: /api/v1
-    uri: http://10.161.237.188:${aleph.port.media}${aleph.media.context-path}
+    uri: http://10.161.237.174:${aleph.port.media}${aleph.media.context-path}
 
   log:
     context-path: /log
@@ -100,15 +100,15 @@ aleph:
   rights:
     context-path: /rights
     api-path: /api/v1
-    uri: http://10.161.237.188:${aleph.port.rights}${aleph.rights.context-path}
+    uri: http://10.161.237.174:${aleph.port.rights}${aleph.rights.context-path}
 
   branding:
     context-path: /branding
     api-path: /api/v1
-    uri: http://argalephdockertu1:${aleph.port.branding}${aleph.branding.context-path}
+    uri: http://10.161.237.174:${aleph.port.branding}${aleph.branding.context-path}
 
   clearproxy:
-    base: http://argalephdockertu1:${aleph.port.clearproxy}
+    base: http://10.161.237.174:${aleph.port.clearproxy}
     context-path: /PFT.Clear.TurnerTracker
     api-path-tvc: Prod/TurnerLatam.svc/json
     api-path-longform: Longform/longformService/staging/v1
@@ -118,17 +118,17 @@ aleph:
   adsales:
     context-path: /adsales
     api-path: /api/v1
-    uri: http://10.161.237.188:${aleph.port.adsales}${aleph.adsales.context-path}
+    uri: http://10.161.237.174:${aleph.port.adsales}${aleph.adsales.context-path}
 
   adsales-freetv:
     context-path: /adsales
     api-path: /api/v1
-    uri: http://10.161.237.188:${aleph.port.adsales-freetv}${aleph.adsales-freetv.context-path}
+    uri: http://10.161.237.174:${aleph.port.adsales-freetv}${aleph.adsales-freetv.context-path}
 
   placer:
     context-path: /placer
     api-path: /api/v1
-    uri: http://10.161.237.188:${aleph.port.placer}${aleph.placer.context-path}
+    uri: http://10.161.237.174:${aleph.port.placer}${aleph.placer.context-path}
 
   orders:
     context-path: /orders
@@ -138,15 +138,15 @@ aleph:
   vod:
     context-path: /vod
     api-path: /api/v1
-    uri: http://10.161.237.188:${aleph.port.vod}${aleph.vod.context-path}
+    uri: http://10.161.237.174:${aleph.port.vod}${aleph.vod.context-path}
     
   prebilling:
     context-path: /prebilling
     api-path: /api/v1
-    uri: http://10.161.237.188:${aleph.port.prebilling}${aleph.prebilling.context-path}
+    uri: http://10.161.237.174:${aleph.port.prebilling}${aleph.prebilling.context-path}
 
   officeMail:
-    uri: http://10.161.237.188:${aleph.port.officeService}
+    uri: http://10.161.237.174:${aleph.port.officeService}
 
   report:
     context-path: /report
