@@ -1,6 +1,9 @@
 
 ---
 aleph:
+  report:
+    server:
+      db: xx
   port:
     oauth: 18080
     finance: 18090
