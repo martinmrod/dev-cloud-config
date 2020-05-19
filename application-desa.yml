@@ -135,7 +135,7 @@ aleph:
   vod:
     context-path: /vod
     api-path: /api/v1
-    uri: http://10.161.237.174:${aleph.port.vod}${aleph.vod.context-path}
+    uri: http://argalephdockerd1:${aleph.port.vod}${aleph.vod.context-path}
     
   prebilling:
     context-path: /prebilling
