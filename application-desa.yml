@@ -87,7 +87,7 @@ aleph:
   media:
     context-path: /media
     api-path: /api/v1
-    uri: http://argalephdockerd1:${aleph.port.media}${aleph.media.context-path}
+    uri: http://10.161.237.174:${aleph.port.media}${aleph.media.context-path}
 
   log:
     context-path: /log
@@ -157,7 +157,7 @@ aleph:
   eip-external:
     context-path: /eip/external
     api-path: /api/v1
-    uri: http://argalephdockerd1:${aleph.port.eip-external}${aleph.eip-external.context-path}
+    uri: http://10.161.237.174:${aleph.port.eip-external}${aleph.eip-external.context-path}
 
   eip-internal:
     context-path: /eip/internal
