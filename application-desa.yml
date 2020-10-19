@@ -1,4 +1,3 @@
-
 ---
 aleph:
   port:
@@ -7,13 +6,13 @@ aleph:
     media: 18100
     rights: 18110
     adsales: 18120
-    adsales-freetv: 18121
     contentdelivery: 18130
     depreciation: 18140
     entities: 18150
     prebilling: 18160
     programming: 18170
     title: 18180
+    title-catalog: 18181
     config: 18190
     branding: 18200
     log: 18220
@@ -28,7 +27,10 @@ aleph:
     orders: 18260
     vod: 18270
     report: 18280
+    entity: 18290
     officeService: 18300
+    freetv-preorders: 18310
+    menu: 18320
 
 
     commondb: 1521
@@ -46,6 +48,7 @@ aleph:
     prebilling: 18162
     programming: 18172
     title: 18182
+    title-catalog: 18183
     branding: 18202
     log: 18222
     support: 18232
@@ -53,6 +56,9 @@ aleph:
     orders: 18262
     vod: 18272
     report: 18282
+    entity: 18292
+    freetv-preorders: 18312
+    menu: 18322
 
   db:
     host: db.turner.dev.redb.ee
@@ -60,7 +66,7 @@ aleph:
   
   redis:
     host: 10.161.237.174
-   
+    
   oauth:
     context-path: /aleph-oauth
     uri: http://10.161.237.174:${aleph.port.oauth}${aleph.oauth.context-path}
@@ -69,10 +75,25 @@ aleph:
       host: localhost
       port: 6379
 
+  finance:
+    context-path: /finance
+    api-path: /api/v2
+    uri: http://10.161.237.174:${aleph.port.finance}${aleph.finance.context-path}
+ 
+  entity:
+    context-path: /entity
+    api-path: /api/v1
+    uri: http://10.161.237.174:${aleph.port.entity}${aleph.entity.context-path}  
+
   title:
     context-path: /title
     api-path: /api/v1
     uri: http://10.161.237.174:${aleph.port.title}${aleph.title.context-path}
+
+  title-catalog:
+    context-path: /title
+    api-path: /api/v1
+    uri: http://10.161.237.174:${aleph.port.title-catalog}${aleph.title-catalog.context-path}
 
   support:
     context-path: /support
@@ -105,11 +126,12 @@ aleph:
     uri: http://10.161.237.174:${aleph.port.branding}${aleph.branding.context-path}
 
   clearproxy:
-    base: http://10.161.237.174:${aleph.port.clearproxy}
+    base: http://argalephdockertu1:${aleph.port.clearproxy}
     context-path: /PFT.Clear.TurnerTracker
     api-path-tvc: Prod/TurnerLatam.svc/json
     api-path-longform: Longform/longformService/staging/v1
-    api-path-vod: ${aleph.clearproxy.base}/PFT.Clear.API/workorder
+    api-path-vod: ${aleph.clearproxy.base}/PFT.Clear.API
+    api-path-promo: Promo/PromoService/v1/
     uri: ${aleph.clearproxy.base}${aleph.clearproxy.context-path}
 
   adsales:
@@ -119,8 +141,8 @@ aleph:
 
   adsales-freetv:
     context-path: /adsales
-    api-path: /api/v1
-    uri: http://10.161.237.174:${aleph.port.adsales-freetv}${aleph.adsales-freetv.context-path}
+    api-path: /api/v2
+    uri: http://10.161.237.174:${aleph.port.adsales}${aleph.adsales-freetv.context-path}
 
   placer:
     context-path: /placer
@@ -151,33 +173,65 @@ aleph:
     uri: http://10.161.237.174:${aleph.port.report}${aleph.report.context-path}
 
   predictive:
+    programmingEngineByProgramOrderMatChapter:
+      60HD: TRUTVHD
+    programmingEngineByProgramScheduleLineOrderSeasonEpisode:
+      TSP1: TNT SERIES PNR 1 HD      
+    knn:
+      62: Tooncast
     programming:
-      uri: http://argalephdockerdpp:19300/
-      
+      uri: http://argalephdockerppp:19300/
+      uriKnn: http://argalephdockerppp:19302/
+    csvGenerator:
+      cron: 0 55 18 * * *
+      sftpUser: prod
+      sftpPwd: pr0dal3ph
+      sftpHost: argalephdockerppp1
+      sftpPort: 22
+      sftpRemoteDirectory: /home/prod/predictive-programming/turner_uploads
+      dbUser: ALEPHEIPAUTOMATION
+      dbPwd: q848_X51514Q
+      progInitialDate: 01/01/2019
+      feeds:
+        TBSH: TBSH
+        TNTA: TNTA
+        TNTC: TNTC
+        TNTH: TNTH
+        TNTV: TNTV
+        
+        
+  freetv-preorders:
+    context-path: /freetv/preorders
+    api-path: /api/v1
+    uri: http://10.161.237.174:${aleph.port.freetv-preorders}${aleph.freetv-preorders.context-path}
+
   eip-external:
     context-path: /eip/external
     api-path: /api/v1
     uri: http://10.161.237.174:${aleph.port.eip-external}${aleph.eip-external.context-path}
-
-  eip-internal:
-    context-path: /eip/internal
-    api-path: /api/v1
-    uri: http://10.161.237.174:${aleph.port.eip-internal}${aleph.eip-internal.context-path}
-    
-  finance:
-    context-path: /finance
-    api-path: /api/v2
-    uri: http://10.161.237.174:${aleph.port.finance}${aleph.finance.context-path}
 
   eip:
     context-path: /eip
     api-path: /api/v1
     uri: http://10.161.237.174:${aleph.port.eip}${aleph.eip.context-path}
 
+  menu:
+    context-path: /menu
+    api-path: /api/v1
+    uri: http://10.161.237.174:${aleph.port.menu}${aleph.menu.context-path}
+
+tracker:
+  oauth:
+    service:
+      uri: TBD
+  esb:
+    service:
+      uri: 10.161.237.174:5555/esb/api/v1
+
 ---
 feign:
   hystrix:
-    enabled: false
+    enabled: true
 ribbon:
   eureka:
         enabled: false
@@ -195,7 +249,7 @@ hystrix:
           enabled: false
 ---
 ldap:
-  url: ldap://argtbsdc01.turner.com:389
+  url: ldap://TPW-ARGINF1001.turner.com:389
   mocked: false
   host: turner.com
 
@@ -226,6 +280,10 @@ spring:
     show-sql: false
     database-platform: org.hibernate.dialect.Oracle9Dialect
 
+  data:
+    elasticsearch:
+      cluster-nodes: argalephdockerd1:9300 
+  
   oauth2:
     resource:
       userInfoUri: ${aleph.oauth.uri}/user
@@ -251,5 +309,5 @@ management:
 
 encrypt:
   key: turner
-
+  
 
