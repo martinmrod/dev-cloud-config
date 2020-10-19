@@ -282,7 +282,7 @@ spring:
 
   data:
     elasticsearch:
-      cluster-nodes: argalephdockerd1:9300 
+      cluster-nodes: 10.161.237.174:9300 
   
   oauth2:
     resource:
